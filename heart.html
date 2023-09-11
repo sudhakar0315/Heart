@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Clarity</title>
+    <style>
+        img {
+            width: 300px; 
+            height: 200px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<center>
+<body>
+    <h1>Heart</h1>
+    <select id="qualitySelect">
+        <option value="140p">140p</option>
+        <option value="240p">240p</option>
+        <option value="420p">420p</option>
+        <option value="720p">720p</option>
+        <option value="1080p">1080p</option>
+    </select>
+    <br><br>
+    <img id="clarityImage" src="1d_heart.png" alt="Image will appear here">
+</center> 
+
+    <script>
+        const clarityImage = document.getElementById("clarityImage");
+        const qualitySelect = document.getElementById("qualitySelect");
+
+        qualitySelect.addEventListener("change", function () {
+            const selectedQuality = qualitySelect.value;
+
+            // Map selected quality to corresponding image
+            const imageMap = {
+                "140p": "1d_heart.png",
+                "240p": "2d_heart.png",
+                "420p": "3d_heart.png",
+                "720p": "heart.png",
+                "1080p": "2.jpg"
+            };
+
+            const selectedImage = imageMap[selectedQuality];
+
+            if (selectedImage) {
+                clarityImage.src = selectedImage;
+            } else {
+                clarityImage.src = ""; // Clear the image if no match is found
+            }
+        });
+    </script>
+</body>
+</html>
